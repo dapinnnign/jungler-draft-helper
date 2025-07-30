@@ -1,0 +1,1 @@
+document.getElementById('app').innerText = 'Jungler Draft Helper aktif!';
