@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jungler Draft Helper</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      color: #333;
+    }
+    .hero-list, .result {
+      margin-top: 20px;
+    }
+    .hero-button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    .hero-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Jungler Draft Helper</h1>
+  <p>Pilih hero musuh:</p>
+  <div class="hero-list" id="hero-list"></div>
+  <div class="result" id="result"></div>
+
+  <script>
+    const heroes = ["Lancelot", "Gusion", "Hayabusa", "Karina"];
+    const counters = {
+      Lancelot: "Baxia",
+      Gusion: "Martis",
+      Hayabusa: "Natalia",
+      Karina: "Helcurt"
+    };
+
+    const heroListDiv = document.getElementById("hero-list");
+    const resultDiv = document.getElementById("result");
+
+    heroes.forEach(hero => {
+      const btn = document.createElement("button");
+      btn.className = "hero-button";
+      btn.innerText = hero;
+      btn.onclick = () => {
+        resultDiv.innerHTML = `<p><strong>Rekomendasi jungler:</strong> ${counters[hero]}</p>`;
+      };
+      heroListDiv.appendChild(btn);
+    });
+  </script>
+</body>
+</html>
